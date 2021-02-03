@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import movieAPI from '../../services/searchMovieApi';
 
 export default class HomePage extends Component {
