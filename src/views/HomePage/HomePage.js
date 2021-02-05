@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import movieAPI from '../../services/searchMovieApi';
+import Container from '../../components/Container/Container';
+import MovieCardList from '../../components/MovieCard/MovieCardList';
 
 export default class HomePage extends Component {
   state = {
@@ -17,14 +19,10 @@ export default class HomePage extends Component {
     const { popularMovies } = this.state;
 
     return (
-      <>
+      <Container>
         <h1>Trending today</h1>
-        <ul>
-          {popularMovies.map(({ id, title }) => {
-            return <li key={id}>{title}</li>;
-          })}
-        </ul>
-      </>
+        <MovieCardList movieList={popularMovies} />
+      </Container>
     );
   }
 }

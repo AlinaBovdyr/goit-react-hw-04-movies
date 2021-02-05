@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+}
+
+.poster {
+  /* margin-right: 20px; */
+}
+
+.descr {
+  height: 450px;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  /* background: linear-gradient(
+    to bottom right,
+    rgba(75.29%, 17.65%, 23.14%, 1),
+    rgba(75.29%, 17.65%, 23.14%, 0.84)
+  ); */
+  color: #fff;
+}

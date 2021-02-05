@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import movieAPI from '../../services/searchMovieApi';
+import Container from '../../components/Container/Container';
 import Searchbar from '../../components/Searchbar/Searchbar';
+import MovieCardList from '../../components/MovieCard/MovieCardList';
 
 export default class MoviesPage extends Component {
   state = {
@@ -36,9 +38,10 @@ export default class MoviesPage extends Component {
     const { searchMovies } = this.state;
 
     return (
-      <>
+      <Container>
         <Searchbar onSubmit={this.handleFormSubmit} />
-        <ul>
+        <MovieCardList movieList={searchMovies} />
+        {/* <ul>
           {searchMovies.map(({ id, title }) => {
             return (
               <li key={id}>
@@ -46,8 +49,8 @@ export default class MoviesPage extends Component {
               </li>
             );
           })}
-        </ul>
-      </>
+        </ul> */}
+      </Container>
     );
   }
 }

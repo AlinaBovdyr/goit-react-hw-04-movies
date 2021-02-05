@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import movieAPI from '../../services/searchMovieApi';
-import MovieCard from '../../components/MovieCard/MovieCard';
+import MovieOverview from '../../components/MovieOverview/MovieOverview';
 import s from './MovieDetailsPage.module.css';
 
 export default class MovieDetailsPage extends Component {
@@ -19,6 +19,6 @@ export default class MovieDetailsPage extends Component {
   render() {
     const { movieDetails } = this.state;
 
-    return movieDetails && <MovieCard movie={movieDetails} />;
+    return movieDetails && <MovieOverview movie={movieDetails} />;
   }
 }
