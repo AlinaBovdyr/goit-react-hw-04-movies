@@ -9,10 +9,10 @@ export default class MovieDetailsPage extends Component {
   };
 
   componentDidMount() {
-    const { id } = this.props.match.params;
+    const { movieId } = this.props.match.params;
 
     movieAPI
-      .getMovies(`/movie/${id}`)
+      .getMovies(`/movie/${movieId}`)
       .then(data => this.setState({ movieDetails: data }));
   }
 

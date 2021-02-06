@@ -21,7 +21,7 @@ const MovieCard = ({
   return (
     <li className={s.movieCard}>
       <div className={s.imgWrapper}>
-        <img className={s.poster} src={SRC} alt="Постер фильма" />
+        <img className={s.poster} src={SRC} alt="Film poster" />
       </div>
       <div className={s.filmData}>
         <h2 className={s.title}>{filmTitle}</h2>

@@ -1,10 +1,12 @@
 import React from 'react';
+import Container from '../../components/Container/Container';
+import errorImg from './not_found.jpg';
 
 const NotFoundPage = () => {
   return (
-    <div>
-      <h1>Not Found</h1>
-    </div>
+    <Container>
+      <img src={errorImg} alt="Page not found" />
+    </Container>
   );
 };
 

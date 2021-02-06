@@ -1,19 +1,64 @@
-.wrapper {
+.section {
+  padding: 20px 0;
+  background-color: #462c4feb;
+  color: #fff;
+  height: 100vh;
+}
+
+.mainInfo {
+  padding: 0 20px;
   display: flex;
 }
 
+.imgWrapper {
+  margin-right: 30px;
+  width: 240px;
+  height: 360px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
 .poster {
-  /* margin-right: 20px; */
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .descr {
-  height: 450px;
-  background-repeat: no-repeat;
-  /* background-size: cover; */
-  /* background: linear-gradient(
-    to bottom right,
-    rgba(75.29%, 17.65%, 23.14%, 1),
-    rgba(75.29%, 17.65%, 23.14%, 0.84)
-  ); */
+  width: 50%;
+  padding: 10px 0;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 30px;
   color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.filmData {
+  margin-bottom: 20px;
+}
+
+.filmOverview {
+  margin-bottom: 10px;
+}
+
+.addInfo {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-top: 2px solid #bbb;
+  border-bottom: 2px solid #bbb;
+}
+
+.filmInfo {
+  margin-bottom: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.listInfo {
+  margin-left: 30px;
 }

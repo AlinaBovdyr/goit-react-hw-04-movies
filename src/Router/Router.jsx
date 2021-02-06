@@ -10,6 +10,8 @@ const Router = () => {
   return (
     <Switch>
       <Route path={routes.home} exact component={HomePage} />
+      {/* <Route path={routes.cast} component={MovieDetailsPage} />
+      <Route path={routes.review} component={MovieDetailsPage} /> */}
       <Route path={routes.movieDetails} component={MovieDetailsPage} />
       <Route path={routes.movies} component={MoviesPage} />
       <Route component={NotFoundPage} />
