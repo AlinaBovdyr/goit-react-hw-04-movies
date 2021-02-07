@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import s from './MovieCard.module.css';
 
 const MovieCard = ({
@@ -8,7 +8,8 @@ const MovieCard = ({
   filmTitle,
   release_date,
   link,
-  popularity,
+  location,
+  q,
 }) => {
   const URL = size => {
     return `https://image.tmdb.org/t/p/w${size}`;
@@ -17,6 +18,8 @@ const MovieCard = ({
   const SRC = poster_url
     ? URL(300) + `${poster_url}`
     : 'https://sezonshin78.ru/design/default_2/images/no_image.png';
+
+  console.log(location.from);
 
   return (
     <li className={s.movieCard}>
@@ -27,7 +30,13 @@ const MovieCard = ({
         <h2 className={s.title}>{filmTitle}</h2>
         {release_date && <p className={s.date}>{release_date.slice(0, 4)}</p>}
       </div>
-      <NavLink className={s.link} to={link} />
+      <Link
+        className={s.link}
+        to={{
+          pathname: link,
+          state: { from: location },
+        }}
+      />
     </li>
   );
 };
@@ -37,7 +46,6 @@ MovieCard.propTypes = {
   filmTitle: PropTypes.string.isRequired,
   release_date: PropTypes.string,
   link: PropTypes.string.isRequired,
-  popularity: PropTypes.number,
 };
 
 export default MovieCard;

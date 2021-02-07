@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Container from '../Container/Container';
+import ReviewCard from './ReviewCard';
 import s from './Reviews.module.css';
 
 const Reviews = ({ reviews }) => {
@@ -8,19 +10,7 @@ const Reviews = ({ reviews }) => {
       {reviews.length > 0 ? (
         <ul className={s.list}>
           {reviews.map(({ id, author, content }) => {
-            return (
-              <li className={s.item} key={id}>
-                <span className={s.author}>{author}</span>
-                <p
-                  className={s.content}
-                  onClick={({ target }) =>
-                    target.classList.remove(`${s.content}`)
-                  }
-                >
-                  {content}
-                </p>
-              </li>
-            );
+            return <ReviewCard key={id} nickName={author} text={content} />;
           })}
         </ul>
       ) : (
@@ -28,6 +18,14 @@ const Reviews = ({ reviews }) => {
       )}
     </Container>
   );
+};
+
+Reviews.propTypes = {
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  ),
 };
 
 export default Reviews;

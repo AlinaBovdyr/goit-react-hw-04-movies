@@ -1,0 +1,19 @@
+.button {
+  position: absolute;
+  padding: 0 5px;
+  left: 20px;
+  top: 55px;
+  background-color: #181838;
+  /* border: 1px solid #fff; */
+  border-radius: 4px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  fill: currentColor;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}

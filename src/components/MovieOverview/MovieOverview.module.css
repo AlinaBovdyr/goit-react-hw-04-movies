@@ -1,5 +1,5 @@
 .section {
-  padding: 20px 0;
+  padding: 40px 0;
   background-color: #462c4feb;
   color: #fff;
   min-height: 100vh;
@@ -38,6 +38,10 @@
   letter-spacing: 0.03em;
 }
 
+.subtitle {
+  color: #ffd6d6;
+}
+
 .filmData {
   margin-bottom: 20px;
 }
@@ -57,6 +61,7 @@
   margin-bottom: 10px;
   font-weight: 500;
   letter-spacing: 0.05em;
+  color: #fff;
 }
 
 .linkList {
@@ -71,10 +76,12 @@
 
 .link {
   color: inherit;
+  text-decoration: none;
 }
 
 .link:hover {
-  color: tomato;
+  /* color: #ffd6d6; */
+  text-decoration: underline;
 }
 
 .activeLink {

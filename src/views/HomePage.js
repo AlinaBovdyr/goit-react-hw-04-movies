@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import movieAPI from '../../services/searchMovieApi';
-import Container from '../../components/Container/Container';
-import MovieCardList from '../../components/MovieCard/MovieCardList';
+import movieAPI from '../services/searchMovieApi';
+import paths from '../services/paths';
+import Container from '../components/Container/Container';
+import MovieCardList from '../components/MovieCard/MovieCardList';
 
 export default class HomePage extends Component {
   state = {
@@ -11,7 +11,7 @@ export default class HomePage extends Component {
 
   componentDidMount() {
     movieAPI
-      .getMovies('/trending/movie/day')
+      .getMovies(paths.trendingMovie)
       .then(data => this.setState({ popularMovies: data.results }));
   }
 

@@ -1,11 +1,12 @@
-import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import movieAPI from '../../services/searchMovieApi';
-import Container from '../../components/Container/Container';
-import Searchbar from '../../components/Searchbar/Searchbar';
-import MovieCardList from '../../components/MovieCard/MovieCardList';
+import movieAPI from '../services/searchMovieApi';
+import paths from '../services/paths';
+import routes from '../routes';
+import Container from '../components/Container/Container';
+import Searchbar from '../components/Searchbar/Searchbar';
+import MovieCardList from '../components/MovieCard/MovieCardList';
 
 export default class MoviesPage extends Component {
   state = {
@@ -19,7 +20,7 @@ export default class MoviesPage extends Component {
 
     if (prevQuery !== currentQuery) {
       movieAPI
-        .getMovies('/search/movie', { query: currentQuery })
+        .getMovies(paths.searchMovie, { query: currentQuery })
         .then(({ results }) => {
           if (results.length === 0) {
             return toast.error('Bad search query :( We have no movies for you');
@@ -35,21 +36,12 @@ export default class MoviesPage extends Component {
   };
 
   render() {
-    const { searchMovies } = this.state;
+    const { searchMovies, searchQuery } = this.state;
 
     return (
       <Container>
         <Searchbar onSubmit={this.handleFormSubmit} />
-        <MovieCardList movieList={searchMovies} />
-        {/* <ul>
-          {searchMovies.map(({ id, title }) => {
-            return (
-              <li key={id}>
-                <Link to={`${this.props.match.url}/${id}`}>{title}</Link>
-              </li>
-            );
-          })}
-        </ul> */}
+        <MovieCardList movieList={searchMovies} query={searchQuery} />
       </Container>
     );
   }

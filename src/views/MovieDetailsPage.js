@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import movieAPI from '../../services/searchMovieApi';
-import MovieOverview from '../../components/MovieOverview/MovieOverview';
-import Cast from '../../components/Cast/Cast';
-import Reviews from '../../components/Reviews/Reviews';
-import s from './MovieDetailsPage.module.css';
+import movieAPI from '../services/searchMovieApi';
+import paths from '../services/paths';
+import routes from '../routes';
+import MovieOverview from '../components/MovieOverview/MovieOverview';
+import Cast from '../components/Cast/Cast';
+import Reviews from '../components/Reviews/Reviews';
+import BackButton from '../components/Button/BackButton';
 
 export default class MovieDetailsPage extends Component {
   state = {
@@ -15,19 +17,25 @@ export default class MovieDetailsPage extends Component {
 
   componentDidMount() {
     const { movieId } = this.props.match.params;
+    console.log(movieId);
 
     movieAPI
-      .getMovies(`/movie/${movieId}`)
+      .getMovies(paths.getDetails(movieId))
       .then(data => this.setState({ movieDetails: data }));
 
     movieAPI
-      .getMovies(`/movie/${movieId}/credits`)
+      .getMovies(paths.getCredits(movieId))
       .then(data => this.setState({ cast: data.cast }));
 
     movieAPI
-      .getMovies(`/movie/${movieId}/reviews`)
+      .getMovies(paths.getReviews(movieId))
       .then(data => this.setState({ reviews: data.results }));
   }
+
+  handleGoBack = () => {
+    const { location, history } = this.props;
+    history.push(location?.state?.from || routes.home);
+  };
 
   render() {
     const { movieDetails, cast, reviews } = this.state;
@@ -35,6 +43,7 @@ export default class MovieDetailsPage extends Component {
 
     return (
       <>
+        <BackButton onClick={this.handleGoBack} />
         {movieDetails && (
           <MovieOverview
             movie={movieDetails}

@@ -1,17 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import routes from '../routes';
-import HomePage from '../views/HomePage/HomePage';
-import MoviesPage from '../views/MoviesPage/MoviesPage';
-import MovieDetailsPage from '../views/MovieDetailsPage/MovieDetailsPage';
-import NotFoundPage from '../views/NotFoundPage/NotFoundPage';
+import HomePage from '../views/HomePage';
+import MoviesPage from '../views/MoviesPage';
+import MovieDetailsPage from '../views/MovieDetailsPage';
+import NotFoundPage from '../views/NotFoundPage';
 
 const Router = () => {
   return (
     <Switch>
       <Route path={routes.home} exact component={HomePage} />
-      {/* <Route path={routes.cast} component={MovieDetailsPage} />
-      <Route path={routes.review} component={MovieDetailsPage} /> */}
       <Route path={routes.movieDetails} component={MovieDetailsPage} />
       <Route path={routes.movies} component={MoviesPage} />
       <Route component={NotFoundPage} />

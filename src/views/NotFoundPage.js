@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from '../../components/Container/Container';
+import Container from '../components/Container/Container';
 import errorImg from './not_found.jpg';
 
 const NotFoundPage = () => {
