@@ -1,8 +1,9 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import s from './MovieOverview.module.css';
 
-const MovieOverview = ({ movie }) => {
+const MovieOverview = ({ movie, children, castLink, reviewLink }) => {
   const {
     title,
     overview,
@@ -30,7 +31,9 @@ const MovieOverview = ({ movie }) => {
           <img className={s.poster} src={SRC} alt="Film poster" />
         </div>
         <div className={s.descr}>
-          <h1 className={s.title}>{title}</h1>
+          <h1 className={s.title}>
+            {title} ({release_date && release_date.slice(0, 4)})
+          </h1>
           <p className={s.filmData}>
             <b>Release Date:</b> {release_date}
           </p>
@@ -51,11 +54,28 @@ const MovieOverview = ({ movie }) => {
       </div>
       <div className={s.addInfo}>
         <p className={s.filmInfo}>Addition Information</p>
-        <ul className={s.listInfo}>
-          <li>Cast</li>
-          <li>Reviews</li>
+        <ul className={s.linkList}>
+          <li className={s.linkItem}>
+            <NavLink
+              className={s.link}
+              activeClassName={s.activeLink}
+              to={castLink}
+            >
+              Cast
+            </NavLink>
+          </li>
+          <li className={s.linkItem}>
+            <NavLink
+              className={s.link}
+              activeClassName={s.activeLink}
+              to={reviewLink}
+            >
+              Reviews
+            </NavLink>
+          </li>
         </ul>
       </div>
+      {children}
     </section>
   );
 };
