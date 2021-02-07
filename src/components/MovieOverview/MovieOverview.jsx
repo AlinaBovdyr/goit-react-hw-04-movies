@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import s from './MovieOverview.module.css';
 
-const MovieOverview = ({ movie, castLink, reviewLink, children }) => {
+const MovieOverview = ({ movie, castLink, reviewLink, children, location }) => {
   const {
     title,
     genres,
@@ -60,7 +60,10 @@ const MovieOverview = ({ movie, castLink, reviewLink, children }) => {
             <NavLink
               className={s.link}
               activeClassName={s.activeLink}
-              to={castLink}
+              to={{
+                pathname: castLink,
+                state: { from: location },
+              }}
             >
               Cast
             </NavLink>
@@ -69,7 +72,10 @@ const MovieOverview = ({ movie, castLink, reviewLink, children }) => {
             <NavLink
               className={s.link}
               activeClassName={s.activeLink}
-              to={reviewLink}
+              to={{
+                pathname: reviewLink,
+                state: { from: location },
+              }}
             >
               Reviews
             </NavLink>
@@ -100,4 +106,4 @@ MovieOverview.propTypes = {
   children: PropTypes.node,
 };
 
-export default MovieOverview;
+export default withRouter(MovieOverview);

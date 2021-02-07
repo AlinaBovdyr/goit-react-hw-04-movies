@@ -1,14 +1,15 @@
 .button {
   position: absolute;
-  padding: 0 5px;
+  padding: 2px 5px;
   left: 20px;
   top: 55px;
   background-color: #181838;
-  /* border: 1px solid #fff; */
+  border: 1px solid transparent;
   border-radius: 4px;
   color: #fff;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .icon {

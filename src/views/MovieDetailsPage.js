@@ -47,8 +47,8 @@ export default class MovieDetailsPage extends Component {
         {movieDetails && (
           <MovieOverview
             movie={movieDetails}
-            castLink={`${match.path}/credits`}
-            reviewLink={`${match.path}/reviews`}
+            castLink={`${match.url}/credits`}
+            reviewLink={`${match.url}/reviews`}
           >
             <Route
               path={`${match.path}/credits`}

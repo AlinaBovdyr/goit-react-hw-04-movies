@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
 import s from './MovieCard.module.css';
 
-const MovieCardList = ({ movieList, location, query }) => {
+const MovieCardList = ({ movieList, location }) => {
   return (
     <ul className={s.movieList}>
       {movieList.map(({ id, poster_path, title, release_date }) => {

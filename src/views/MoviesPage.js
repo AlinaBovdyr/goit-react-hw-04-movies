@@ -27,12 +27,14 @@ export default class MoviesPage extends Component {
           }
 
           this.setState({ searchMovies: results });
+          this.props.location.search = `?query=${currentQuery}`;
         });
     }
   }
 
   handleFormSubmit = query => {
     this.setState({ searchQuery: query });
+    this.props.location.search = '';
   };
 
   render() {

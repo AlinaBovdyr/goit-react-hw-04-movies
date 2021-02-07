@@ -3,14 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import s from './MovieCard.module.css';
 
-const MovieCard = ({
-  poster_url,
-  filmTitle,
-  release_date,
-  link,
-  location,
-  q,
-}) => {
+const MovieCard = ({ poster_url, filmTitle, release_date, link, location }) => {
   const URL = size => {
     return `https://image.tmdb.org/t/p/w${size}`;
   };
@@ -18,8 +11,6 @@ const MovieCard = ({
   const SRC = poster_url
     ? URL(300) + `${poster_url}`
     : 'https://sezonshin78.ru/design/default_2/images/no_image.png';
-
-  console.log(location.from);
 
   return (
     <li className={s.movieCard}>
