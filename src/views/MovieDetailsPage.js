@@ -17,7 +17,6 @@ export default class MovieDetailsPage extends Component {
 
   componentDidMount() {
     const { movieId } = this.props.match.params;
-    console.log(movieId);
 
     movieAPI
       .getMovies(paths.getDetails(movieId))
@@ -34,6 +33,15 @@ export default class MovieDetailsPage extends Component {
 
   handleGoBack = () => {
     const { location, history } = this.props;
+    if (
+      location.state &&
+      location.state.from &&
+      location.state.from.state &&
+      location.state.from.state.from
+    ) {
+      history.push(location.state.from.state.from);
+    }
+
     history.push(location?.state?.from || routes.home);
   };
 

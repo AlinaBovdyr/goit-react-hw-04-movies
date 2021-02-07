@@ -1,9 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import routes from '../routes';
-// import HomePage from '../views/HomePage';
-// import MoviesPage from '../views/MoviesPage';
-// import MovieDetailsPage from '../views/MovieDetailsPage';
 import NotFoundPage from '../views/NotFoundPage';
 
 const HomePage = lazy(() =>
