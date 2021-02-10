@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import routes from '../../routes';
 import s from './MovieOverview.module.css';
 
 const MovieOverview = ({ movie, castLink, reviewLink, children, location }) => {
@@ -41,8 +42,8 @@ const MovieOverview = ({ movie, castLink, reviewLink, children, location }) => {
             <b className={s.subtitle}>User Score:</b> {popularity}%
           </p>
           <p className={s.filmData}>
-            <b className={s.subtitle}>Genres:</b>{' '}
-            {genres.map(({ name }) => name)}
+            <b className={s.subtitle}>Genres:</b>
+            {genres && genres.map(({ name }) => name)}
           </p>
           <p className={s.filmData}>
             <b className={s.subtitle}>Runtime:</b> {runtime} min
@@ -62,7 +63,7 @@ const MovieOverview = ({ movie, castLink, reviewLink, children, location }) => {
               activeClassName={s.activeLink}
               to={{
                 pathname: castLink,
-                state: { from: location },
+                state: { from: location?.state?.from || routes.home },
               }}
             >
               Cast
@@ -74,7 +75,7 @@ const MovieOverview = ({ movie, castLink, reviewLink, children, location }) => {
               activeClassName={s.activeLink}
               to={{
                 pathname: reviewLink,
-                state: { from: location },
+                state: { from: location?.state?.from || routes.home },
               }}
             >
               Reviews

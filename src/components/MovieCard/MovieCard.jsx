@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import s from './MovieCard.module.css';
 
-const MovieCard = ({ poster_url, filmTitle, release_date, link, location }) => {
+const MovieCard = ({
+  poster_url,
+  filmTitle,
+  release_date,
+  link,
+  location,
+  vote_average,
+}) => {
   const URL = size => {
     return `https://image.tmdb.org/t/p/w${size}`;
   };
