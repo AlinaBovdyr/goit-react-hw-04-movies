@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react';
 import { Route } from 'react-router-dom';
 import movieAPI from '../services/searchMovieApi';
 import paths from '../services/paths';
 import routes from '../routes';
 import MovieOverview from '../components/MovieOverview/MovieOverview';
-import Cast from '../components/Cast/Cast';
-import Reviews from '../components/Reviews/Reviews';
 import BackButton from '../components/Button/BackButton';
+
+const Cast = lazy(() =>
+  import('../components/Cast/Cast' /* webpackChunkName: "casts-page" */),
+);
+const Reviews = lazy(() =>
+  import(
+    '../components/Reviews/Reviews' /* webpackChunkName: "reviews-page" */
+  ),
+);
 
 export default class MovieDetailsPage extends Component {
   state = {
@@ -58,14 +65,16 @@ export default class MovieDetailsPage extends Component {
             castLink={`${match.url}/credits`}
             reviewLink={`${match.url}/reviews`}
           >
-            <Route
-              path={`${match.path}/credits`}
-              render={props => <Cast {...props} cast={cast} />}
-            />
-            <Route
-              path={`${match.path}/reviews`}
-              render={props => <Reviews {...props} reviews={reviews} />}
-            />
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Route
+                path={`${match.path}/credits`}
+                render={props => <Cast {...props} cast={cast} />}
+              />
+              <Route
+                path={`${match.path}/reviews`}
+                render={props => <Reviews {...props} reviews={reviews} />}
+              />
+            </Suspense>
           </MovieOverview>
         )}
       </>

@@ -33,13 +33,13 @@
 .title {
   margin-top: 0;
   margin-bottom: 30px;
-  color: #fff;
+  color: #ff545a;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
 .subtitle {
-  color: #ffd6d6;
+  color: #ffa5a8;
 }
 
 .filmData {
@@ -61,7 +61,7 @@
   margin-bottom: 10px;
   font-weight: 500;
   letter-spacing: 0.05em;
-  color: #fff;
+  color: #ffa5a8;
 }
 
 .linkList {

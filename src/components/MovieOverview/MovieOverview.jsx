@@ -42,7 +42,7 @@ const MovieOverview = ({ movie, castLink, reviewLink, children, location }) => {
             <b className={s.subtitle}>User Score:</b> {popularity}%
           </p>
           <p className={s.filmData}>
-            <b className={s.subtitle}>Genres:</b>
+            <b className={s.subtitle}>Genres: </b>
             {genres && genres.map(({ name }) => name)}
           </p>
           <p className={s.filmData}>
